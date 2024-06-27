@@ -25,19 +25,6 @@
             text-align: center;
         }
 
-        nav {
-            background-color: #008000;
-            padding: 10px 0;
-            text-align: center;
-        }
-
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
         section {
             padding: 20px;
             text-align: center;
@@ -48,18 +35,70 @@
             margin: 0 auto;
         }
 
-        .cta-button {
-            background-color: #0044cc;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            display: inline-block;
-            margin-top: 20px;
+        form {
+            min-width: 25rem;
+
+            .title {
+                font-family: 'Pacifico', cursive;
+                color: #212529;
+                font-size: 2.5rem;
+            }
+
+            .form-control {
+                background-color: #f2f6f8;
+                border-radius: 2rem;
+                border: none;
+                box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.11);
+
+                &.thick {
+                    height: 3.3rem;
+                    padding: .5rem 3.5rem;
+                }
+
+                &:focus {
+                    background-color: #f2f6f8;
+                    border: none;
+                    box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.11);
+                }
+            }
+
+            .message .form-control {
+                padding: 1rem 4.25rem;
+            }
+
+            ::placeholder {
+                font-family: 'Quicksand', sans-serif;
+                font-weight: 600;
+                font-size: 1.1rem;
+                color: #838788;
+                position: fixed;
+                left: 2rem;
+            }
+
+            input,
+            textarea {
+                font-family: 'Quicksand', sans-serif;
+                color: #212529;
+                font-size: 1.1rem;
+            }
         }
 
-        .cta-button:hover {
-            background-color: #003399;
+        .btn.btn-primary {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: bold;
+            height: 2.5rem;
+            line-height: 2.5rem;
+            padding: 0 3rem;
+            border: 0;
+            border-radius: 3rem;
+            background-image: linear-gradient(131deg, #77ffbb, #34f092, #2caf6e, #086436);
+            background-size: 300% 100%;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn.btn-primary:hover:enabled {
+            background-size: 100% 100%;
+            transform: translateY(-0.15em);
         }
 
         footer {
@@ -67,7 +106,7 @@
             color: white;
             text-align: center;
             padding: 10px 0;
-            position: fixed;
+            position: relative;
             bottom: 0;
             width: 100%;
         }
@@ -103,29 +142,40 @@
     </section>
     <section id="join">
         <div class="content">
-            <h2>Join the League</h2>
+            <h1 class="title text-center mb-4">Ready to Join?</h1>
             <p>Ready to join the fun? Register now to become a member of our pickleball league. We welcome players of
-                all skill levels and backgrounds. Click the button below to sign up!</p>
+                all skill levels and backgrounds. Click the button below to sign up! Submissions are not final but we'd
+                love to hear who is interested.</p>
         </div>
     </section>
     <section id="contact">
         <div class="content">
             <!-- modify this form HTML and place wherever you want your form -->
             <form action="https://formspree.io/f/xqazzwdj" method="POST">
-                <label>
-                    Your name:
-                    <input type="text" name="name">
-                </label>
-                <label>
-                    Your email:
-                    <input type="email" name="email">
-                </label>
-                <label>
-                    Your message:
-                    <textarea name="message"></textarea>
-                </label>
-                <!-- your other form fields go here -->
-                <button type="submit" class="cta-button">Send</button>
+                <!-- Name -->
+                <div class="form-group position-relative">
+                    <label for="formName" class="d-block">
+                    </label>
+                    <input type="text" id="formName" class="form-control form-control-lg thick" placeholder="Name">
+                </div>
+                <br>
+                <!-- E-mail -->
+                <div class="form-group position-relative">
+                    <label for="formEmail" class="d-block">
+                    </label>
+                    <input type="email" id="formEmail" class="form-control form-control-lg thick" placeholder="E-mail">
+                </div>
+                <br>
+                <!-- Message -->
+                <div class="form-group message">
+                    <textarea id="formMessage" class="form-control form-control-lg" rows="7"
+                        placeholder="Message"></textarea>
+                </div>
+                <br>
+                <!-- Submit btn -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary" tabIndex="-1">Join</button>
+                </div>
             </form>
         </div>
     </section>
